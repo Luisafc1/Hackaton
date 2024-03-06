@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 
 @Data
@@ -23,10 +20,12 @@ public class Budget {
     @Min(1)
     private Long id;
 
+    @Transient
     private Category category;
 
     private double amount;
 
+    @Transient
     private Customer user;
 
     private Long selected;

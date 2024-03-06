@@ -8,10 +8,7 @@ import java.time.LocalDate;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 
 
@@ -33,10 +30,13 @@ public class Transaction {
 
     private String paymentType;
 
+    @Transient
     private Category category;
 
+    @Transient
     private Account account;
 
+    @Transient
     private Customer user;
 
     private boolean isDeleted;
