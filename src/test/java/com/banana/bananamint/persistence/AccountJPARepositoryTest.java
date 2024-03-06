@@ -1,6 +1,7 @@
 package com.banana.bananamint.persistence;
 
 import com.banana.bananamint.domain.Account;
+import com.banana.bananamint.domain.Customer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
@@ -36,17 +37,20 @@ private static final Logger logger = LoggerFactory.getLogger(AccountJPARepositor
     private AccountJPARepository jpaRepo;
 
     @Test
-    void save() {
+    void given_an_acount_When_save_thenOK() {
         // given
-        Account aAccount = new Account(null,"corriente", LocalDate.now(),1000,500,null,true);
-
+        Customer customer = new Customer(1L);
+        Account newAccount = new Account(null,"corriente", LocalDate.now(),1000,500,customer,true);
         // when
-        jpaRepo.save(aAccount);
+        newAccount = jpaRepo.save(newAccount);
+        System.out.println("newAccount:" + newAccount);
 
-        System.out.println(aAccount);
+        customer = entityManager.find(Customer.class,1L);
+        System.out.println("customer:" + customer);
 
         // then
-        assertThat(aAccount.getId()).isGreaterThan(0);
+        assertThat(newAccount.getId()).isNotNull();
+        assertThat(newAccount.getId().isGreaterThan(0));
     }
 
 }

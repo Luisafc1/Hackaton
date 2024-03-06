@@ -28,7 +28,8 @@ public class Account {
 
     private double maxOverdraft;
 
-    @Transient
+    @ManyToOne
+    @JoinColumn(name="customer_id")
     private Customer owner;
 
     private boolean active;
