@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+
+@Service
 public class JPAExpenseService implements IncomeExpenseService{
      private Logger logger = LoggerFactory.getLogger(JPAExpenseService.class);
 
@@ -36,7 +38,7 @@ public class JPAExpenseService implements IncomeExpenseService{
 
     @Override
     public Expense addExpense(Long idCustomer, Expense expense) throws IncomeExpenseException {
-        expense.setId(Math.toIntExact(idCustomer));
+        //expense.getUser().setId(idCustomer);
         return expenseRepository.save(expense);
     }
 

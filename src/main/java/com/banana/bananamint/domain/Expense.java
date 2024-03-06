@@ -23,7 +23,8 @@ public class Expense {
     @Min(1)
     private Integer Id;
 
-    @Transient
+    @ManyToOne
+    @JoinColumn
     private Customer user;
 
     private double amount;

@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/expense")
+@RequestMapping("/Bananamint/expense")
 @Validated
 public class BananamintController {
 
