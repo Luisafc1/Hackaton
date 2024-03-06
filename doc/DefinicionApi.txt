@@ -1,0 +1,6 @@
+POST /Expense 
+
+	->json(xml)
+	<-201 (creado correctamente)
+	  412(mal formateado)
+	  422
