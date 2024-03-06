@@ -24,12 +24,12 @@ public class JPAIncomeService implements IncomeExpenseService {
 
     @Override
     public List<Income> showAllIncomes(Long idCustomer) throws IncomeExpenseException {
-        return null;
+        return incomeRepository.findAll();
     }
 
     @Override
     public Income addIncome(Long idCustomer, Income income) throws IncomeExpenseException {
-        return null;
+        return incomeRepository.save(income);
     }
 
     @Override
