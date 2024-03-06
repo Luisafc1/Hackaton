@@ -49,8 +49,8 @@ private static final Logger logger = LoggerFactory.getLogger(AccountJPARepositor
         System.out.println("customer:" + customer);
 
         // then
-        assertThat(newAccount.getId()).isNotNull();
-        assertThat(newAccount.getId().isGreaterThan(0));
+        assertThat(newAccount).isNotNull();
+        assertThat(newAccount.getId()).isGreaterThan(0);
     }
 
 }
