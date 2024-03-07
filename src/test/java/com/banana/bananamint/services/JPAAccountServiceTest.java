@@ -22,7 +22,7 @@ class JPAAccountServiceTest {
 
     @Autowired
 
-    private JPAAccountService jpaService;
+    private AccountDataService jpaService;
 
     @Test
     void given_an_acount_When_save_thenOK() throws AccountException {

@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BananamintControllerTest {
 
     @Autowired
-    private BananamintController controller;
+    private AccountController controller;
 
     @Test
     void givenaccounts_whenVaildOpenAccount_thenIsCreatedAndHaveId() {

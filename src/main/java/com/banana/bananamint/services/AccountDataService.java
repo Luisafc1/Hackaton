@@ -9,17 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 
-import javax.persistence.EntityManager;
 import java.time.LocalDate;
 import java.util.List;
 
 
 @Service
-public class JPAAccountService implements AccountService{
+public class AccountDataService implements AccountService{
     private Logger logger = LoggerFactory.getLogger(AccountService.class);
-
-    @Autowired
-    private EntityManager entityManager;
     @Autowired
     private AccountJPARepository accountRepository;
 
@@ -29,7 +25,8 @@ public class JPAAccountService implements AccountService{
     }
     @Override
     public Account open(Long idCustomer, Account account) throws AccountException {
-        Customer customer = entityManager.find(Customer.class,idCustomer);
+        Customer customer = new Customer(idCustomer);//entityManager.find(Customer.class,idCustomer);
+        System.out.println("customer:" + customer);
         account.setOwner(customer);
         account.setOpeningDate(LocalDate.now());
         return accountRepository.save(account);
