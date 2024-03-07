@@ -50,6 +50,9 @@ class IncomeJPARepositoryTest {
         customer = entityManager.find(Customer.class, 1L);
         System.out.println("customer:" + customer);
 
+        incomeAccount = entityManager.find(Account.class, 1L);
+        System.out.println("account:" + incomeAccount);
+
         // then
         assertThat(newIncome).isNotNull();
         assertThat(newIncome.getId()).isGreaterThan(0);
