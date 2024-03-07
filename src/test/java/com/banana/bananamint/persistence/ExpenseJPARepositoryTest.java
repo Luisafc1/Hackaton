@@ -1,5 +1,6 @@
 package com.banana.bananamint.persistence;
 
+import com.banana.bananamint.domain.Customer;
 import com.banana.bananamint.domain.Expense;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,9 +37,11 @@ private static final Logger logger = LoggerFactory.getLogger(ExpenseJPARepositor
     private ExpenseJPARepository jpaRepo;
 
     @Test
-    void save() {
+    void given_a_new_expense_when_save_thenOk() {
         // given
-        Expense aExpense = new Expense(null,null,12.3,LocalDate.now(),null,"true");
+        Customer user = new Customer();
+        user.setId(1L);
+        Expense aExpense = new Expense(null,user,12.3,LocalDate.now(),null,"true");
 
         // when
         jpaRepo.save(aExpense);

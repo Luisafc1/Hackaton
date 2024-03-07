@@ -24,14 +24,15 @@ public class Expense {
     private Integer Id;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "customer_id")
     private Customer user;
 
     private double amount;
 
     private LocalDate dueDate;
 
-    @Transient
+    @ManyToOne
+    @JoinColumn(name = "account_id")
     private Account moneyFrom;
 
     private String status;

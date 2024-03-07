@@ -1,5 +1,7 @@
 package com.banana.bananamint.services;
 
+import com.banana.bananamint.domain.Account;
+import com.banana.bananamint.domain.Customer;
 import com.banana.bananamint.domain.Expense;
 import com.banana.bananamint.domain.Income;
 import com.banana.bananamint.exception.IncomeExpenseException;
@@ -37,8 +39,19 @@ public class JPAExpenseService implements IncomeExpenseService{
     }
 
     @Override
-    public Expense addExpense(Long idCustomer, Expense expense) throws IncomeExpenseException {
-        //expense.getUser().setId(idCustomer);
+    public Expense addExpense(Long idCustomer,Long idAccount, Expense expense) throws IncomeExpenseException {
+
+        Customer newCustomer = new Customer();
+        Account newAccount = new Account();
+
+        //Customer newCustomer1 = entityManager.find(Customer.class,idCustomer);
+
+
+
+        newCustomer.setId(idCustomer);
+        newAccount.setId(idAccount);
+        expense.setUser(newCustomer);
+        expense.setMoneyFrom(newAccount);
         return expenseRepository.save(expense);
     }
 
