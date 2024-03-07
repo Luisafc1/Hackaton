@@ -4,6 +4,7 @@ import com.banana.bananamint.domain.Account;
 import com.banana.bananamint.domain.Customer;
 import com.banana.bananamint.exception.AccountException;
 import com.banana.bananamint.persistence.AccountJPARepository;
+import com.banana.bananamint.persistence.CustomerJPARepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ public class AccountDataService implements AccountService{
     private Logger logger = LoggerFactory.getLogger(AccountService.class);
     @Autowired
     private AccountJPARepository accountRepository;
+    @Autowired
+    private CustomerJPARepository customerRepository;
 
     @Override
     public List<Account> showAll(Long idCustomer) throws AccountException {
@@ -25,7 +28,7 @@ public class AccountDataService implements AccountService{
     }
     @Override
     public Account open(Long idCustomer, Account account) throws AccountException {
-        Customer customer = new Customer(idCustomer);//entityManager.find(Customer.class,idCustomer);
+        Customer customer = new Customer(idCustomer);
         System.out.println("customer:" + customer);
         account.setOwner(customer);
         account.setOpeningDate(LocalDate.now());
