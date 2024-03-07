@@ -4,32 +4,22 @@ import com.banana.bananamint.domain.Customer;
 import com.banana.bananamint.domain.Goal;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest()
 @ComponentScan(basePackages = {"com.banana.bananamint.persistence"})
 @AutoConfigureTestEntityManager
-
 class GoalJPARepositoryTest {
-private static final Logger logger = LoggerFactory.getLogger(GoalJPARepositoryTest.class);
-
     @Autowired
     private TestEntityManager entityManager;
 
@@ -38,19 +28,20 @@ private static final Logger logger = LoggerFactory.getLogger(GoalJPARepositoryTe
     private GoalJPARepository jpaRepo;
 
     @Test
-    void save() {
+    void given_a_goal_When_save_thenOK() {
         // given
-        Customer aCustomer = new Customer(null, "Alex Perez","alex@bananamint.com",LocalDate.of(1985,03,06),"12345678L");
-        Goal aGoal = new Goal(null,"Vacaciones", "Vacaciones24", 1000,"Activo",LocalDate.of(2024,10,12),aCustomer);
-
+        Customer customer = new Customer(1L);
+        Goal newGoal = new Goal(null,"Ahorro","200 EUR mes",200,"iniciado", LocalDate.now(),customer);
         // when
-        jpaRepo.save(aGoal);
+        newGoal= jpaRepo.save(newGoal);
+        System.out.println("newGoal:" + newGoal);
 
-        System.out.println(aGoal);
+        customer = entityManager.find(Customer.class, 1L);
+        System.out.println("customer:" + customer);
 
         // then
-        assertThat(aGoal.getId()).isGreaterThan(0);
+        assertThat(newGoal).isNotNull();
+        assertThat(newGoal.getId()).isGreaterThan(0);
     }
-
 
 }
