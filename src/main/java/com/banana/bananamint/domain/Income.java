@@ -24,14 +24,14 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @Entity
 public class Income {
-   @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Min(1)
     @Schema(name = "Income ID", example = "1", required = false)
     private Integer Id;
 
     @ManyToOne
-    @JoinColumn(name="customer_id")
+    @JoinColumn(name = "customer_id")
     private Customer user;
 
     private double amount;
