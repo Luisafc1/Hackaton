@@ -25,7 +25,7 @@ public class BananamintController {
     @Autowired
     private IncomeExpenseService inExService;
 
-    @PostMapping("/income/{cid}/¨{aid}")
+    @PostMapping("/income/{cid}/{aid}")
     public ResponseEntity<Income> createIncome(
             @RequestBody @Valid Income income, @PathVariable @Min(1) Long cid,@PathVariable @Min(1) Long aid
     ) {

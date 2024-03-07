@@ -1,6 +1,7 @@
 package com.banana.bananamint.persistence;
 
 import com.banana.bananamint.domain.Account;
+import com.banana.bananamint.domain.Customer;
 import com.banana.bananamint.domain.Income;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,17 +38,21 @@ class IncomeJPARepositoryTest {
     private IncomeJPARepository jpaRepo;
 
     @Test
-    void dado_nuevo_ingreso_cuando_realizo_save_entonces_OK() {
+    void given_an_income_When_save_thenOK() {
         // given
-        Income aIncome = new Income(null,null,500,LocalDate.now(),null,"Nomina");
-
+        Customer customer = new Customer(1L);
+        Account incomeAccount = new Account(1L);
+        Income newIncome = new Income(null,customer,2000,LocalDate.now(),incomeAccount,"Nomina");
         // when
-        jpaRepo.save(aIncome);
+        newIncome= jpaRepo.save(newIncome);
+        System.out.println("newIncome:" + newIncome);
 
-        System.out.println(aIncome);
+        customer = entityManager.find(Customer.class, 1L);
+        System.out.println("customer:" + customer);
 
         // then
-        assertThat(aIncome.getId()).isGreaterThan(0);
+        assertThat(newIncome).isNotNull();
+        assertThat(newIncome.getId()).isGreaterThan(0);
     }
 
 }
