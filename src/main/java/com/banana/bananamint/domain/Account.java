@@ -8,7 +8,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.time.LocalDate;
 
 @Data
@@ -33,12 +35,14 @@ public class Account {
 
     LocalDate openingDate;
 
+    @Min(0)
     private double balance;
 
+    @Min(1)
     private double maxOverdraft;
 
     @ManyToOne
-    @JoinColumn(name="customer_id")
+    @JoinColumn(name = "customer_id")
     private Customer owner;
 
     private boolean active;
