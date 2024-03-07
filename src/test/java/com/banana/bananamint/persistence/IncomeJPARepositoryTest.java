@@ -29,14 +29,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureTestEntityManager
 class IncomeJPARepositoryTest {
     private static final Logger logger = LoggerFactory.getLogger(IncomeJPARepositoryTest.class);
-
     @Autowired
     private TestEntityManager entityManager;
-
     @Autowired
-
     private IncomeJPARepository jpaRepo;
-
     @Test
     void given_an_income_When_save_thenOK() {
         // given

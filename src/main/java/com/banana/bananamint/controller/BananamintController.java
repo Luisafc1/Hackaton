@@ -33,7 +33,7 @@ public class BananamintController {
     @Operation(summary = "Create a income ", description = "Create a new income")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Successfully created"),
-            @ApiResponse(responseCode = "412", description = "Not created- incorrect data")
+            @ApiResponse(responseCode = "4**", description = "Bad Request")
     })
     @PostMapping("/income/{cid}/{aid}")
     public ResponseEntity<Income> createIncome(

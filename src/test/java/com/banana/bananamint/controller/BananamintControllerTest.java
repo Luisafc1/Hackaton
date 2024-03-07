@@ -19,7 +19,6 @@ class BananamintControllerTest {
     @Autowired
     private BananamintController controller;
 
-
     @Test
     void givenIncomes_whenValidIncome_thenIsCreatedAndHaveId() {
 
