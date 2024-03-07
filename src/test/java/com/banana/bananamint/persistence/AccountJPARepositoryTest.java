@@ -11,17 +11,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEnti
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
 import java.time.LocalDate;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest()
 @ComponentScan(basePackages = {"com.banana.bananamint.persistence"})

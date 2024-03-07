@@ -20,10 +20,10 @@ public class BananamintController {
     private AccountService accountService;
 
 
-    @PostMapping("/{id}")
+    @PostMapping("/{cid}")
     public ResponseEntity<Account> createAccount(
-            @RequestBody @Valid Account account,@PathVariable @Min(1) Long id
+            @RequestBody @Valid Account account,@PathVariable @Min(1) Long cid
     ) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(accountService.open(id,account));
+        return ResponseEntity.status(HttpStatus.CREATED).body(accountService.open(cid,account));
     }
 }
