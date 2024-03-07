@@ -28,6 +28,10 @@ public class Customer {
     private LocalDate birthDate;
     private String dni;
 
+    public Customer(Long id) {
+        this.id = id;
+    }
+
     public boolean isValid() throws CustomerException {
         // Para que el usuario sea valido:
         // email válido

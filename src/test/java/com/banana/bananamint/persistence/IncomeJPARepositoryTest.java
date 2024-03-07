@@ -37,7 +37,7 @@ class IncomeJPARepositoryTest {
     private IncomeJPARepository jpaRepo;
 
     @Test
-    void save() {
+    void dado_nuevo_ingreso_cuando_realizo_save_entonces_OK() {
         // given
         Income aIncome = new Income(null,null,500,LocalDate.now(),null,"Nomina");
 
