@@ -1,4 +1,4 @@
-POST /Expense 
+POST /Expense/cliente/{cid}/cuenta/{idcuenta
 
 	->json(xml)
 	<-201 (creado correctamente)

@@ -30,7 +30,7 @@ public class BananamintController {
             @ApiResponse(responseCode = "202", description = "Successfully created"),
             @ApiResponse(responseCode = "4XX", description = "Bad request")
     })
-    @PostMapping("/{id}/{aid}")
+    @PostMapping("cliente/{id}/cuenta/{aid}")
     public ResponseEntity<Expense> createGasto(
             @RequestBody @Valid Expense gasto,
             @PathVariable @Min(1) Long id,

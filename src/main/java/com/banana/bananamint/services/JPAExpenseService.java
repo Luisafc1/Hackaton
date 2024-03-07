@@ -44,10 +44,6 @@ public class JPAExpenseService implements IncomeExpenseService{
         Customer newCustomer = new Customer();
         Account newAccount = new Account();
 
-        //Customer newCustomer1 = entityManager.find(Customer.class,idCustomer);
-
-
-
         newCustomer.setId(idCustomer);
         newAccount.setId(idAccount);
         expense.setUser(newCustomer);

@@ -10,6 +10,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @Getter
@@ -35,6 +36,7 @@ public class Expense {
     @JoinColumn(name = "account_id")
     private Account moneyFrom;
 
+    @NotBlank
     private String status;
 
 }
